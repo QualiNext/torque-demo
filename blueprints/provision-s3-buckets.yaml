@@ -31,7 +31,7 @@ grains:
       host:
         name: myk8s
       inputs:
-        - region: us-east-1
+        - region: us-west-1
         - acl: private
         - name: 'demo-s3-bucket-2-{{ sandboxid | downcase }}'
       outputs:
