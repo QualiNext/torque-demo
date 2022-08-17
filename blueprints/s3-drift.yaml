@@ -6,14 +6,16 @@ inputs:
     type: execution-host
 
 outputs:
-  bucket_1:
-    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
-  bucket_2:
-    value: '{{ .grains.bucket_2.outputs.s3_bucket_arn }}'
+  service-1-logs-bucket:
+    value: '{{ .grains.service-1-logs-bucket.outputs.s3_bucket_arn }}'
+    kind: link
+  service-2-logs-bucket:
+    value: '{{ .grains.service-2-logs-bucket.outputs.s3_bucket_arn }}'
+    kind: link
 
 #change
 grains:
-  bucket_1:
+  service-1-logs-bucket:
     kind: terraform
     spec: 
       source:
@@ -23,11 +25,11 @@ grains:
       inputs:
         - region: us-west-1
         - acl: private
-        - name: 'demo-s3-bucket-1-{{ sandboxid | downcase }}'
+        - name: 'demo-s3-service-1-logs-bucket-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
 
-  bucket_2:
+  service-2-logs-bucket:
     kind: terraform
     spec: 
       source:
@@ -37,6 +39,7 @@ grains:
       inputs:
         - region: us-west-1
         - acl: private
-        - name: 'demo-s3-bucket-2-{{ sandboxid | downcase }}'
+        - name: 'demo-s3-service-2-logs-bucket-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
+      depends-on: service-1-logs-bucket
