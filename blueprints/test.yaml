@@ -1,45 +1,17 @@
 spec_version: 2
-description: Simple s3 buckets provisioning
+description: testing sandbox...
 
 inputs:
-  host:
-    type: string
-    display-style: normal
-    default: "dbs"
-    description: "Execution host name"
+  host_name:
+    type: execution-host
     
-outputs:
-  bucket_1:
-    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
-  bucket_2:
-    value: '{{ .grains.bucket_2.outputs.s3_bucket_arn }}'
-
-
 grains:
-  bucket_1:
-    kind: terraform
+  setup:
+    kind: shell
     spec: 
-      source:
-        path: github.com/QualiNext/torque-demo.git//terraform/s3
       host:
-        name: '{{ .inputs.host }}'
-      inputs:
-        - region: us-west-1
-        - acl: private
-        - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
-      outputs:
-        - s3_bucket_arn
-
-  bucket_2:
-    kind: terraform
-    spec: 
-      source:
-        path: github.com/QualiNext/torque-demo.git//terraform/s3
-      host:
-        name: '{{ .inputs.host }}'
-      inputs:
-        - region: us-east-1
-        - acl: private
-        - name: 'test-bucket-2-s3-{{ sandboxid | downcase }}'
-      outputs:
-        - s3_bucket_arn
+        name: '{{ .inputs.host_name }}'
+      activities:
+        deploy:
+          commands:
+            - "echo setup script is running..."
