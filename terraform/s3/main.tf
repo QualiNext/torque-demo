@@ -6,8 +6,6 @@ terraform {
     }
   }
 }
-# blabla
-# comment
 
 
 provider "aws" {
