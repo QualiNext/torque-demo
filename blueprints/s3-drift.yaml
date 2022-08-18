@@ -26,7 +26,8 @@ grains:
     kind: terraform
     spec: 
       source:
-        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+        store: torque-demo
+        path: terraform/s3
       host:
         name: '{{ .inputs.host }}'
       inputs:
@@ -41,7 +42,8 @@ grains:
     depends-on: db-bucket
     spec: 
       source:
-        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+        store: torque-demo
+        path: terraform/s3
       host:
         name: '{{ .inputs.host }}'
       inputs:
@@ -57,7 +59,8 @@ grains:
     depends-on: db-bucket
     spec: 
       source:
-        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+        store: torque-demo
+        path: terraform/s3
       host:
         name: '{{ .inputs.host }}'
       inputs:
