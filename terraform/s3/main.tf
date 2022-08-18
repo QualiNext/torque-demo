@@ -3,7 +3,6 @@ terraform {
     aws = {
       source = "hashicorp/aws"
       version = ">3.0.0"
-      # Xxx12
     }
   }
 }
@@ -12,6 +11,7 @@ terraform {
 provider "aws" {
   region = var.region
 }
+# new comment
 
 
 data "aws_iam_user" "input_user" {
