@@ -46,7 +46,7 @@ grains:
       source:
         path: https://github.com/QualiNext/torque-demo.git//terraform/s3
       host:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.host_name }}'
       inputs:
         - region: us-west-1
         - acl: private
@@ -60,7 +60,7 @@ grains:
       source:
         path: https://github.com/QualiNext/torque-demo.git//terraform/s3
       host:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.host_name }}'
       inputs:
         - region: us-west-1
         - acl: private
