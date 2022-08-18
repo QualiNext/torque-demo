@@ -24,9 +24,6 @@ inputs:
     type: execution-host
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
-  mysql-ip:
-    value: '{{ .grains.aws-wordpress.outputs.mysql-ip }}'
-    kind: link
   mysql-ssh-link:
     value: '{{ .grains.aws-wordpress.outputs.mysql-ssh-link }}'
     kind: link
