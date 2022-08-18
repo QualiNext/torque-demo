@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-#my new comment xxx1
-
 
 provider "aws" {
   region = var.region
