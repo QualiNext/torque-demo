@@ -4,18 +4,25 @@ description: Simple s3 buckets provisioning
 inputs:
   host:
     type: execution-host
+  db-bucket-region:
+    default: eu-west-1
+  app-bucket-region:
+    default: eu-west-1
 
 outputs:
-  service-1-logs-bucket:
-    value: '{{ .grains.service-1-logs-bucket.outputs.s3_bucket_arn }}'
+  db-bucket:
+    value: '{{ .grains.db-bucket.outputs.s3_bucket_arn }}'
     kind: link
-  service-2-logs-bucket:
-    value: '{{ .grains.service-2-logs-bucket.outputs.s3_bucket_arn }}'
+  service-1-bucket:
+    value: '{{ .grains.service-1-bucket.outputs.s3_bucket_arn }}'
+    kind: link
+  service-2-bucket:
+    value: '{{ .grains.service-2-bucket.outputs.s3_bucket_arn }}'
     kind: link
 
 #change
 grains:
-  service-1-logs-bucket:
+  db-bucket:
     kind: terraform
     spec: 
       source:
@@ -23,23 +30,39 @@ grains:
       host:
         name: '{{ .inputs.host }}'
       inputs:
-        - region: us-west-1
+        - region: '{{ .inputs.db-bucket-region }}'
         - acl: private
-        - name: 'demo-s3-service-1-logs-bucket-{{ sandboxid | downcase }}'
+        - name: 'demo-db-bucket-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
 
-  service-2-logs-bucket:
+  service-1-bucket:
     kind: terraform
+    depends-on: db-bucket
     spec: 
       source:
         path: https://github.com/QualiNext/torque-demo.git//terraform/s3
       host:
         name: '{{ .inputs.host }}'
       inputs:
-        - region: us-west-1
+        - region: '{{ .inputs.app-bucket-region }}'
         - acl: private
-        - name: 'demo-s3-service-2-logs-bucket-{{ sandboxid | downcase }}'
+        - name: 'demo-service-1-bucket-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
-      depends-on: service-1-logs-bucket
+
+
+  service-2-bucket:
+    kind: terraform
+    depends-on: db-bucket
+    spec: 
+      source:
+        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+        - region: '{{ .inputs.app-bucket-region }}'
+        - acl: private
+        - name: 'demo-service-2-bucket-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
