@@ -11,7 +11,6 @@ terraform {
 provider "aws" {
   region = var.region
 }
-# new comment
 
 
 data "aws_iam_user" "input_user" {
