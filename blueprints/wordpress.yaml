@@ -38,8 +38,36 @@ outputs:
   wordpress-ssh-link:
     value: '{{ .grains.aws-wordpress.outputs.wordpress-ssh-link }}'
     kind: link
+    
 grains:
-  
+  mysql-logs-bucket:
+    kind: terraform
+    spec: 
+      source:
+        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+        - region: us-west-1
+        - acl: private
+        - name: 'mysql-logs-bucket-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
+
+  app-logs-bucket:
+    kind: terraform
+    spec: 
+      source:
+        path: https://github.com/QualiNext/torque-demo.git//terraform/s3
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+        - region: us-west-1
+        - acl: private
+        - name: 'app-logs-bucket-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
+      
   aws-wordpress:
     kind: terraform
     spec:
@@ -69,3 +97,4 @@ grains:
       - wordpress-address
       - wordpress-ip
       - wordpress-ssh-link
+      depends-on: app-logs-bucket, mysql-logs-bucket
