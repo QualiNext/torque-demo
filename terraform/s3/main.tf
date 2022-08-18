@@ -7,6 +7,7 @@ terraform {
   }
 }
 # comment number one
+# comment number two
 
 
 provider "aws" {
