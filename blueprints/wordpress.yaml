@@ -70,6 +70,7 @@ grains:
       
   aws-wordpress:
     kind: terraform
+    depends-on: app-logs-bucket, mysql-logs-bucket
     spec:
       source:
         store: assets
@@ -97,4 +98,3 @@ grains:
       - wordpress-address
       - wordpress-ip
       - wordpress-ssh-link
-      depends-on: app-logs-bucket, mysql-logs-bucket
