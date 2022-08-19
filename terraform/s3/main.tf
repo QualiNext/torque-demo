@@ -20,8 +20,9 @@ data "aws_iam_user" "input_user" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = var.name
-  force_destroy = true  
+  force_destroy = true
 
+  # my tags
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
