@@ -3,10 +3,7 @@ description: Robotshot microservices application deployed on K8S with Helm and R
 
 inputs:
   host:
-    type: string
-    display-style: normal
-    default: "eks"
-    description: "Execution host name" 
+    type: execution-host
   version:
     type: string
     display-style: normal
