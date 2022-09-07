@@ -23,6 +23,7 @@ resource "aws_s3_bucket" "bucket" {
   force_destroy = true
 
   # my tags
+  # one more comment
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
