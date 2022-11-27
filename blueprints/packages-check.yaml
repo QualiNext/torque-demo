@@ -4,15 +4,7 @@ description: simple packages check
 
 inputs:
   host:
-    type: string
-    display-style: normal
-    default: "eks"
-    description: "Execution host name"
-  service_account:
-    type: string
-    default: "tf-qualidev2-sa"
-    display-style: normal
-    description: "Service account name"
+    type: execution-host
 
 grains:
   kubectl-cmd:
@@ -22,6 +14,6 @@ grains:
         path: github.com/johnathanvidu/prod-tests.git//terraform/packages/kubectl
       host:
         name: '{{.inputs.host}}'
-        service-account: '{{.inputs.service_account}}'
+        # service-account: '{{.inputs.service_account}}'
       inputs:
         - SANDBOX_ID: '{{sandboxId}}'
