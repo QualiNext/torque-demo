@@ -1,0 +1,30 @@
+spec_version: 2
+description: Drift test
+
+inputs:
+  host:
+    type: execution-host
+  bucket-region:
+    default: eu-west-1
+
+outputs:
+  bucket:
+    value: '{{ .grains.bucket.outputs.s3_bucket_arn }}'
+    kind: link
+
+#change
+grains:
+  bucket:
+    kind: terraform
+    spec: 
+      source:
+        store: torque-demo
+        path: terraform/s3
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+        - region: '{{ .inputs.bucket-region }}'
+        - acl: private
+        - name: 'drift-test-bucket-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
