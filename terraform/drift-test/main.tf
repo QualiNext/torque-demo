@@ -11,10 +11,13 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_object" "example" {
   bucket = var.bucket-to-drift-id
+  key    = "my-example-key"
+  source = "./example.txt"
   
   tags = {
-    Tagger = "drift"
+    Name        = "My Example Object"
+    Environment = "production"
   }
 }
