@@ -28,3 +28,18 @@ grains:
         - name: 'drift-test-bucket-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
+        - bucket_to_drift_id
+  
+  tagger:
+    kind: terraform
+    spec: 
+      source:
+        store: torque-demo
+        path: terraform/drift-test
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+        - region: '{{ .inputs.bucket-region }}'
+        - bucket-to-drift-id: {{ .grains.bucket.outputs.bucket_to_drift_id }}
+      outputs:
+        - s3_bucket_arn
