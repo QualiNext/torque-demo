@@ -74,3 +74,7 @@ resource "aws_iam_user_policy_attachment" "attachment" {
 output "s3_bucket_arn" {
   value = aws_s3_bucket.bucket.arn
 }
+
+output "bucket_to_drift_id" {
+  value = aws_s3_bucket.bucket.id
+}
