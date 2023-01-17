@@ -32,6 +32,7 @@ grains:
   
   tagger:
     kind: terraform
+    depends-on: bucket
     spec: 
       source:
         store: torque-demo
