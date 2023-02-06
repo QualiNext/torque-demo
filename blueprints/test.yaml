@@ -1,9 +1,9 @@
 spec_version: 2
 description: testing sandbox...
 
-inputs:
-  host_name:
-    type: execution-host
+# inputs:
+#   host_name:
+#     type: execution-host
     
 grains:
   setup:
