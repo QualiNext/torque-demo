@@ -11,7 +11,7 @@ grains:
     spec: 
       host:
 #         name: '{{ .inputs.host_name }}'
-        name: asaf-eks
+        name: 'asaf-eks'
       activities:
         deploy:
           commands:
