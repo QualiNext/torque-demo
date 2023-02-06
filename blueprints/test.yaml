@@ -10,7 +10,8 @@ grains:
     kind: shell
     spec: 
       host:
-        name: '{{ .inputs.host_name }}'
+#         name: '{{ .inputs.host_name }}'
+        name: asaf-eks
       activities:
         deploy:
           commands:
