@@ -38,6 +38,7 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
 }
 
 #my comment
+#my 2nd comment
 resource "aws_iam_policy" "policy" {
   count = "${var.user == "none" ? 0 : 1}"
   name        = "s3_access_${var.name}"
