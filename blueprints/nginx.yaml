@@ -2,7 +2,7 @@ spec_version: 2
 description: Blueprint for bitnami nginx helm chart 
 
 inputs:
-  host:
+  agent:
     type: string
     display-style: normal
     default: "eks"
@@ -15,7 +15,7 @@ grains:
     spec:
       source:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
-      host:
+      agent:
         name: '{{.inputs.host}}'
       commands:
         - dep up bitnami/nginx

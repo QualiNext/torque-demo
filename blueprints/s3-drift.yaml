@@ -2,8 +2,8 @@ spec_version: 2
 description: Simple s3 buckets provisioning
 
 inputs:
-  host:
-    type: execution-host
+  agent:
+    type: agent
   db-bucket-region:
     default: eu-west-1
   app-bucket-region:
@@ -28,7 +28,7 @@ grains:
       source:
         store: torque-demo
         path: terraform/s3
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
         - region: '{{ .inputs.db-bucket-region }}'
@@ -44,7 +44,7 @@ grains:
       source:
         store: torque-demo
         path: terraform/s3
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
         - region: '{{ .inputs.app-bucket-region }}'
@@ -61,7 +61,7 @@ grains:
       source:
         store: torque-demo
         path: terraform/s3
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
         - region: '{{ .inputs.app-bucket-region }}'

@@ -2,8 +2,8 @@ spec_version: 2
 description: Drift test
 
 inputs:
-  host:
-    type: execution-host
+  agent:
+    type: agent
   bucket-region:
     default: eu-west-1
 
@@ -20,7 +20,7 @@ grains:
       source:
         store: torque-demo
         path: terraform/s3
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
         - region: '{{ .inputs.bucket-region }}'
@@ -37,7 +37,7 @@ grains:
       source:
         store: torque-demo
         path: terraform/drift-test
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
         - region: '{{ .inputs.bucket-region }}'

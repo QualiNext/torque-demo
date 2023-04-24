@@ -2,7 +2,7 @@ spec_version: 2-preview
 description: Initializing a Jira instance
 
 inputs:
-  host:
+  agent:
     type: string
     display-style: normal
     default: "eks"
@@ -14,7 +14,7 @@ grains:
       spec:
         source:
           path: https://github.com/atlassian/data-center-helm-charts.git//src/main/charts/jira
-        host:
+        agent:
           name: '{{.inputs.host}}'
         commands:
           - "dep up src/main/charts/jira"

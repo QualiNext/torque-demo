@@ -6,7 +6,7 @@ grains:
   setup:
     kind: shell
     spec: 
-      host:
+      agent:
         name: dbs-mac
       activities:
         deploy:

@@ -3,8 +3,8 @@ spec_version: 2
 description: simple packages check
 
 inputs:
-  host:
-    type: execution-host
+  agent:
+    type: agent
 
 grains:
   kubectl-cmd:
@@ -12,7 +12,7 @@ grains:
     spec:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/packages/kubectl
-      host:
+      agent:
         name: '{{.inputs.host}}'
         # service-account: '{{.inputs.service_account}}'
       inputs:

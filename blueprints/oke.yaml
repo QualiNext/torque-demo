@@ -4,7 +4,7 @@ description: Oracle compute instance
 
 
 inputs:
-  host:
+  agent:
     type: string
     display-style: normal
     default: "eks"
@@ -37,7 +37,7 @@ grains:
     spec:
       source:
         path: github.com/QualiNext/test-spec2-public.git//terraform/oci-instance
-      host:
+      agent:
         name: '{{.inputs.host}}'
       inputs:
         - compartment_ocid : '{{.inputs.compartment}}'
