@@ -10,7 +10,7 @@ grains:
     kind: shell
     spec: 
       agent:
-#         name: '{{ .inputs.host_name }}'
+#         name: '{{ .inputs.agent }}'
         name: 'asaf-eks'
       activities:
         deploy:

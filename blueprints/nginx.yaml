@@ -16,6 +16,6 @@ grains:
       source:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       agent:
-        name: '{{.inputs.host}}'
+        name: '{{.inputs.agent}}'
       commands:
         - dep up bitnami/nginx

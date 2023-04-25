@@ -21,7 +21,7 @@ grains:
         store: torque-demo
         path: terraform/s3
       agent:
-#         name: '{{ .inputs.host }}'
+#         name: '{{ .inputs.agent }}'
         name: asaf-eks
       inputs:
         - region: '{{ .inputs.db-bucket-region }}'

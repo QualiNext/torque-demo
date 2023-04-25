@@ -16,7 +16,7 @@ grains:
       source:
         path: https://github.com/TomerAdmon/torque-demo.git//terraform/s3
       agent:
-        name: '{{ .inputs.host_name }}'
+        name: '{{ .inputs.agent }}'
       inputs:
         - region: us-west-1
         - acl: private

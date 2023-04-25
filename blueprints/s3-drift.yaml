@@ -29,7 +29,7 @@ grains:
         store: torque-demo
         path: terraform/s3
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
       inputs:
         - region: '{{ .inputs.db-bucket-region }}'
         - acl: private
@@ -45,7 +45,7 @@ grains:
         store: torque-demo
         path: terraform/s3
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
       inputs:
         - region: '{{ .inputs.app-bucket-region }}'
         - acl: private
@@ -62,7 +62,7 @@ grains:
         store: torque-demo
         path: terraform/s3
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
       inputs:
         - region: '{{ .inputs.app-bucket-region }}'
         - acl: private

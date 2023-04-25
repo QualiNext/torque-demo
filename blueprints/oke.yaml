@@ -38,7 +38,7 @@ grains:
       source:
         path: github.com/QualiNext/test-spec2-public.git//terraform/oci-instance
       agent:
-        name: '{{.inputs.host}}'
+        name: '{{.inputs.agent}}'
       inputs:
         - compartment_ocid : '{{.inputs.compartment}}'
         - tenancy_ocid : '{{.inputs.tenancy}}'

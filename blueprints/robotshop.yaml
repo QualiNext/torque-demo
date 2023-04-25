@@ -34,7 +34,7 @@ grains:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/rds
       agent:
-        name: '{{.inputs.host}}'
+        name: '{{.inputs.agent}}'
       inputs:
         - sandbox_id: '{{ sandboxid | downcase }}'
         - size: '{{ .inputs.db_size }}' 
@@ -55,7 +55,7 @@ grains:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/s3
       agent:
-        name: '{{.inputs.host}}'
+        name: '{{.inputs.agent}}'
       inputs:
         - region: eu-west-1
         - acl: public-read
@@ -70,7 +70,7 @@ grains:
       source:
         path: https://github.com/QualiSystemsLab/Torque-Project-Pivot.git//robotShop
       agent:
-        name: '{{.inputs.host}}'
+        name: '{{.inputs.agent}}'
       inputs:
         - hostname: 'robotshop-{{ sandboxid | downcase }}'
         - version: '{{ .inputs.version }}'

@@ -15,6 +15,6 @@ grains:
         source:
           path: https://github.com/atlassian/data-center-helm-charts.git//src/main/charts/jira
         agent:
-          name: '{{.inputs.host}}'
+          name: '{{.inputs.agent}}'
         commands:
           - "dep up src/main/charts/jira"

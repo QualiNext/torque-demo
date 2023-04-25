@@ -83,7 +83,7 @@ grains:
       source:
         path: https://github.com/bitnami/charts.git//bitnami/mongodb
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
         # A service account annotated with a role ARN with permissions to run the asset
         # service-account: <service-account-name>
       inputs:
