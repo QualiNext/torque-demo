@@ -2,7 +2,7 @@ spec_version: 2
 description: Simple s3 buckets provisioning
 
 inputs:
-  host_name:
+  agent:
     type: agent
 
 outputs:
