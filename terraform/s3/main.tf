@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "bucket" {
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
-    AMAZING_TAG = "NEW_AMAZING_VALUE"
+    AMAZING_TAG = "AMAZING_VALUE"
   }
 }
 
@@ -51,7 +51,7 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
   ]
   bucket = aws_s3_bucket.bucket.id
 
-  acl = "private"
+  acl = var.acl
 }
 
 resource "aws_iam_policy" "policy" {
