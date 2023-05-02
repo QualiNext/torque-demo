@@ -12,8 +12,6 @@ provider "aws" {
   region = var.region
 }
 
-# comment number two
-# one more here
 data "aws_iam_user" "input_user" {
   count = "${var.user == "none" ? 0 : 1}"
   user_name = var.user
@@ -23,12 +21,10 @@ resource "aws_s3_bucket" "bucket" {
   bucket = var.name
   force_destroy = true
 
-  # my tags
-  # one more comment
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
-    AMAZING_TAG = "NEW_AMAZING_VALUE"
+    AMAZING_TAG = "AMAZING_VALUE"
   }
 }
 
@@ -58,9 +54,6 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
   acl = "public-read"
 }
 
-#my comment
-#my 2nd comment
-#my 3rd comment
 resource "aws_iam_policy" "policy" {
   count = "${var.user == "none" ? 0 : 1}"
   name        = "s3_access_${var.name}"
