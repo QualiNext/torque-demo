@@ -4,6 +4,50 @@ description: testing sandbox...
 inputs:
   agent:
     type: agent
+outputs:
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+  a:
+    value: a
+    
     
 grains:
   setup:
