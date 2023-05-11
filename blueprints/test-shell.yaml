@@ -7,47 +7,40 @@ inputs:
 outputs:
   a:
     value: a
-  a:
+  a0:
     value: a
-  a:
+  a1:
     value: a
-  a:
+  a2:
     value: a
-  a:
+  a3:
     value: a
-  a:
+  a4:
     value: a
-  a:
+  a5:
     value: a
-  a:
+  a6:
     value: a
-  a:
+  a7:
     value: a
-  a:
+  a8:
     value: a
-  a:
+  a9:
     value: a
-  a:
+  a11:
     value: a
-  a:
+  a12:
     value: a
-  a:
+  a13:
     value: a
-  a:
+  a14:
     value: a
-  a:
+  a15:
     value: a
-  a:
+  a16:
     value: a
-  a:
+  a17:
     value: a
-  a:
-    value: a
-  a:
-    value: a
-  a:
-    value: a
-    
     
 grains:
   setup:
