@@ -9,3 +9,8 @@ variable "region" {
     type = string
     default = "eu-west-1"
 }
+
+variable "name" {
+    description = "bucket name" 
+    type = string
+}
