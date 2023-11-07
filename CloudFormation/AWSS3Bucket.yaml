@@ -13,7 +13,7 @@ Outputs:
     Value: !GetAtt 
       - MyBucket
       - Arn
-  bucket_to_drift_id:    
+  BucketToDriftId:    
     Value: !Ref MyBucket
   DomainName:
     Description: The Bucket Domain Name
