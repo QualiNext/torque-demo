@@ -40,12 +40,7 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
-  S3ObjectExample:
-    Type: AWS::S3::Object
-    Properties:
-      Bucket: !Ref BucketName
-      Key: my-example-key
-      Source: ./example.txt
+
 
 
 
