@@ -51,4 +51,17 @@ grains:
       - Arn
       - DomainName
       region: '{{ .inputs.region }}'
-
+   tagger:
+    kind: terraform
+    depends-on: bucket
+    spec: 
+      source:
+        store: torque-demo
+        path: terraform/drift-test
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - region: '{{ .inputs.bucket-region }}'
+        - bucket-to-drift-id: '{{ .grains.bucket.outputs.bucket_to_drift_id }}'
+      outputs:
+        - s3_bucket_arn
