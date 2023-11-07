@@ -52,9 +52,9 @@ grains:
       - DomainName
       region: '{{ .inputs.region }}'
       
-    tagger:
+  tagger:
     kind: terraform
-    depends-on: bucket
+    depends-on: AWSS3Bucket
     spec: 
       source:
         store: torque-demo
@@ -62,7 +62,7 @@ grains:
       agent:
         name: '{{ .inputs.agent }}'
       inputs:
-        - region: '{{ .inputs.bucket-region }}'
+        # - region: '{{ .inputs.bucket-region }}'
         - bucket-to-drift-id: '{{ .grains.bucket.outputs.bucket_to_drift_id }}'
       outputs:
         - s3_bucket_arn
