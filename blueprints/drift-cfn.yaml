@@ -63,6 +63,6 @@ grains:
         name: '{{ .inputs.agent }}'
       inputs:
         # - region: '{{ .inputs.bucket-region }}'
-        - bucket-to-drift-id: '{{ .grains.bucket.outputs.bucket_to_drift_id }}'
+        - bucket-to-drift-id: '{{ .grains.AWSS3Bucket.outputs.bucket_to_drift_id }}'
       outputs:
         - s3_bucket_arn
