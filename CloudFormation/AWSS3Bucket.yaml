@@ -43,7 +43,7 @@ Resources:
   S3ObjectExample:
     Type: AWS::S3::Object
     Properties:
-      Bucket: !GetAtt MyBucket.Name
+      Bucket: !Ref MyBucket.Name
       Key: my-example-key
       Source: ./example.txt
 
