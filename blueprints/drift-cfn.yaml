@@ -50,6 +50,7 @@ grains:
       outputs:
       - Arn
       - DomainName
+      - bucket_to_drift_id
       region: '{{ .inputs.region }}'
       
   tagger:
