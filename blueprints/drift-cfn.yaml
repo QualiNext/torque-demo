@@ -51,7 +51,8 @@ grains:
       - Arn
       - DomainName
       region: '{{ .inputs.region }}'
-   tagger:
+      
+    tagger:
     kind: terraform
     depends-on: bucket
     spec: 
