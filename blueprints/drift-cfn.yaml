@@ -50,7 +50,7 @@ grains:
       outputs:
       - Arn
       - DomainName
-      - bucketToDriftId: '{{ .grains.AWSS3Bucket.outputs.bucket_to_drift_id }}'
+      bucketToDriftId: '{{ .grains.AWSS3Bucket.outputs.bucket_to_drift_id }}'
       region: '{{ .inputs.region }}'
       
   tagger:
