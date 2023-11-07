@@ -36,7 +36,7 @@ grains:
         # A service account annotated with a role ARN with permissions to run the asset
         # service-account: <service-account-name>
       source:
-        store: qa_automation
+        store: torque-demo
         path: CloudFormation/AWSS3Bucket.yaml
       authentication: 
        - Amir-aws-credentials
