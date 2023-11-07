@@ -1,0 +1,54 @@
+spec_version: 2
+description: Auto generated blueprint for CloudFormation template AWSS3Bucket.yaml
+# blueprint inputs can be provided by the user, API or CI plugin when creating an environment from this blueprint.
+inputs:
+  AccessControl:
+    type: string
+    default: PublicRead
+    description: Access Control value
+  BucketName:
+    type: string
+    default: my-bucket
+    description: Logical Bucket Name
+  region:
+    type: string
+  role_arn:
+    type: string
+  external_id:
+    type: string
+  agent:
+    type: agent  
+# blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
+outputs:
+  Arn:
+    value: '{{ .grains.AWSS3Bucket.outputs.Arn }}'
+    quick: true
+  DomainName:
+    value: '{{ .grains.AWSS3Bucket.outputs.DomainName }}'
+    quick: true
+grains:
+  AWSS3Bucket:
+    kind: cloudformation
+    spec:
+      agent:
+      # The Torque agent that will be used to provision the environment.
+        name: '{{ .inputs.agent }}'
+        # A service account annotated with a role ARN with permissions to run the asset
+        # service-account: <service-account-name>
+      source:
+        store: qa_automation
+        path: CloudFormation/AWSS3Bucket.yaml
+      authentication: 
+       - Amir-aws-credentials
+      inputs:
+      - AccessControl: '{{ .inputs.AccessControl }}'
+      - BucketName: '{{ .inputs.BucketName }}'
+      # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
+      # env-vars:
+      # - VAR_NAME: var value
+      env-vars: []
+      outputs:
+      - Arn
+      - DomainName
+      region: '{{ .inputs.region }}'
+
