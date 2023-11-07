@@ -13,6 +13,8 @@ Outputs:
     Value: !GetAtt 
       - MyBucket
       - Arn
+  bucket_to_drift_id:    
+      value: aws_s3_bucket.bucket.id
   DomainName:
     Description: The Bucket Domain Name
     Value: !GetAtt 
